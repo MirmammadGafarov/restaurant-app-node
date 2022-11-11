@@ -1,0 +1,17 @@
+//abstracts
+@import "./abstracts/variables";
+
+//base
+@import "./base/reset";
+
+//layout
+@import "./layout/end";
+@import "./layout/head";
+@import "./layout/breakpoints";
+
+//page
+@import "./pages/addOrder";
+@import "./pages/admin";
+@import "./pages/home";
+@import "./pages/individualOrder";
+@import "./pages/orderList";

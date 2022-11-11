@@ -1,0 +1,33 @@
+.individual-box {
+  margin-top: 20px;
+  border: #02c39a 1px solid;
+}
+
+.status {
+  cursor: pointer;
+  border: #6e6e6e 1px solid !important;
+}
+
+.pullBack {
+  cursor: pointer;
+  border: #0575e6 1px solid !important;
+}
+
+.form-check {
+  label {
+    font-weight: 500;
+  }
+  input {
+    transform: scale(1.2);
+    &:checked {
+      background-color: rgba(218, 15, 15, 0.795) !important;
+    }
+  }
+}
+
+.total {
+  input {
+    text-align: left;
+    text-indent: 10px;
+  }
+}

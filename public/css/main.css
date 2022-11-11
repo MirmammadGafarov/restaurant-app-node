@@ -1,0 +1,169 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+input:focus {
+  border-color: none !important;
+  -webkit-box-shadow: 0 0 4px #00f260 !important;
+          box-shadow: 0 0 4px #00f260 !important;
+  outline: 0 none !important;
+}
+
+.container {
+  padding: 30px;
+}
+.container h1 {
+  font-size: 30px;
+  color: #2c2c2c;
+}
+
+.main-btn {
+  color: #181818;
+  font-weight: 500;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.4s !important;
+  transition: all 0.4s !important;
+  background: #02c39a;
+}
+.main-btn:hover {
+  color: #181818;
+  background-color: transparent !important;
+}
+
+.table {
+  text-align: center;
+}
+.table input {
+  text-align: center;
+  border: none;
+}
+
+.navbar {
+  background: -webkit-gradient(linear, left top, right top, from(#0575e6), to(#00f260));
+  background: linear-gradient(to right, #0575e6, #00f260);
+}
+
+.nav-link {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.list-box {
+  position: relative;
+}
+
+#foodList {
+  text-align: left;
+  display: none;
+  position: absolute;
+  height: 110px;
+  width: 100%;
+  padding: 10px;
+  overflow-y: scroll;
+  box-shadow: 3px 3px 9px 0px rgba(75, 75, 75, 0.75);
+  -webkit-box-shadow: 3px 3px 9px 0px rgba(112, 112, 112, 0.75);
+  -moz-box-shadow: 3px 3px 9px 0px rgba(94, 94, 94, 0.75);
+}
+#foodList li {
+  cursor: pointer;
+  list-style: none;
+}
+
+.add-box {
+  padding: 40px;
+  margin-top: 20px;
+  border: #02c39a 1px solid;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.drag-left {
+  font-size: 14px;
+  text-indent: 4px;
+  text-align: left;
+}
+
+.individual-box {
+  margin-top: 20px;
+  border: #02c39a 1px solid;
+}
+
+.status {
+  cursor: pointer;
+  border: #6e6e6e 1px solid !important;
+}
+
+.pullBack {
+  cursor: pointer;
+  border: #0575e6 1px solid !important;
+}
+
+.form-check label {
+  font-weight: 500;
+}
+.form-check input {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+.form-check input:checked {
+  background-color: rgba(218, 15, 15, 0.795) !important;
+}
+
+.total input {
+  text-align: left;
+  text-indent: 10px;
+}
+
+.table-box {
+  margin-top: 20px;
+  border: #02c39a 1px solid;
+}

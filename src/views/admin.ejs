@@ -1,0 +1,71 @@
+<%- include('partials/head')  %>
+
+<section class="admin">
+  <div class="container text-center">
+    <div class="row">
+      <h1>Admin İdarə Paneli</h1>
+
+      <div class="col-md-12 d-flex align-center">
+        <div class="add-box">
+          <form action="/admin" method="POST">
+            <div class="mb-3 drag-left">
+              <label class="form-label ">Yeni masa əlavə edin :</label>
+              <input
+                type="text"
+                class="form-control"
+                name="deskName"
+                required
+                autocomplete="off"
+                placeholder="məs: Masa_1"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary main-btn mt-3">
+              Əlavə Et
+            </button>
+          </form>
+
+          <form class="row g-3 mt-5" action="/admin" method="POST">
+            <div class="col-md-8 drag-left">
+              <label class="form-label">Yeni yemək (içki) əlavə edin :</label>
+              <input
+                type="text"
+                class="form-control"
+                name="foodName"
+                class="form-control"
+                required
+                autocomplete="off"
+                placeholder="məs: Klassik Pepperoni Pizza"
+              />
+            </div>
+
+            <div class="col-md-4 drag-left">
+              <label class="form-label">Qiyməti :</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  name="foodPrice"
+                  class="form-control"
+                  min="1"
+                  max="100"
+                  required
+                  autocomplete="off"
+                  placeholder="məs: 14.5"
+                />
+                <span class="input-group-text">Azn</span>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary main-btn mt-3">
+                Əlavə Et
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <%- include('partials/end')  %>
