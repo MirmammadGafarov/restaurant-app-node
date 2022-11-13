@@ -61,7 +61,7 @@ exports.postIndividualOrder = async (req, res) => {
   } = req.body;
 
   if (typeof status == "string") {
-    var singleWish = {
+    const singleWish = {
       rowNum,
       foodName,
       quantity,
@@ -72,8 +72,8 @@ exports.postIndividualOrder = async (req, res) => {
     };
     food.push(singleWish);
   } else {
-    for (var i = 0; i < status.length; i++) {
-      var multipleWish = {
+    for (let i = 0; i < status.length; i++) {
+      const multipleWish = {
         rowNum: rowNum[i],
         foodName: foodName[i],
         quantity: quantity[i],
