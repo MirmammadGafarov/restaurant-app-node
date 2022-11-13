@@ -1,4 +1,16 @@
-//
+/* 
+$("#searchInput")
+İzahı: 
+- .keyup: Hər keyup event tətikləndikdə input-a(#searchInput) yazdığımız dəyər ilə DB-dəki dəyər müqayisə edilərək dinamik nəticə verəcək.
+- #searchInput: Axtarmaq istədiyimiz elementin(yeməyin vəya içkinin) adını yazıdığımız Input
+- enteredValue: Inputa daxil edilən dəyər
+- foodCollection: DB-dəki elementlərin siyahısı (HTML collection olduğu üçün loop əməliyyatını tətbiq etmək olmur)
+- foodArray: Spread operator ilə HTML collection-ı Array-ə convert edəcək
+- --------
+- .focus: 
+- Input-a fokuslandıqda elementlərin siyahısını göstərcək
+*/
+
 $("#searchInput")
   .keyup(function () {
     var enteredValue = $(this).val().toLowerCase();
@@ -17,15 +29,42 @@ $("#searchInput")
     $("#foodList").show();
   });
 
+/* 
+$("#foodList li")
+İzahı: 
+- .click: seçilmiş elementin adı və qiymətini Inputa daxil eedilməsi üçün
+- selectedFood: seçilmiş elementin adı
+- selectedFoodPrice: seçilmiş elementin qiyməti (type: hidden)
+- #searchInput: seçdiyimiz elementin adı bura daxil ediləcək
+- #searchInput: seçdiyimiz elementin qiyməti bura daxil ediləcək (type: hidden)
+- #foodList: Seçim etdikdən sonra gizlədiləcək
+*/
+
 $("#foodList li").click(function () {
   var selectedFood = $(this).text();
   var selectedFoodPrice = $(this).children().val();
 
   $("#searchInput").val(selectedFood);
   $("#priceInput").val(selectedFoodPrice);
-
   $("#foodList").hide();
 });
+
+/* 
+$("#addButton")
+İzahı: 
+- .click: button-a click etdikdə elementlər cədvələ daxil ediləcək 
+- rowNum: Cədvəlin sıra nömrəsi
+- deskName: Masanın adı
+- foodName: Yemək adı
+- quantity: Yemək miqdarı
+- calculatedPrice: Cəm qiyməti
+- Math.abs(): Mənfi dəyər daxilsə belə hər zaman müsbət dəyər return eləsin
+- orderTime: Sifariş saatı
+- status: default dəyəri 'Hazırlanır' (type: hidden)
+- pullBack: default dəyəri 'Geri al <--' (type: hidden)
+- #wishList: cədvəl ID-sidir
+
+*/
 
 $("#addButton").click(function () {
   var rowNum = $("#wishList tr").length;
@@ -36,7 +75,9 @@ $("#addButton").click(function () {
   var calculatedPrice = Math.abs(
     Number(quantity) * Number($("#priceInput").val())
   ).toFixed(1);
+
   var orderTime = new Date().getHours() + ":" + new Date().getMinutes();
+
   if (deskName === "" || foodName === "" || quantity === "") {
     alert("Xanaları tam doldurun");
   } else {
@@ -57,12 +98,22 @@ $("#addButton").click(function () {
     
     `);
 
+    /*
+Cədvələ sifariş əlavə olunduqda:
+- createButton: Sifariş Yarat buttonu seçimi aktivləşmiş olacaq 
+- #desk: masa seçimi deaktiv olacaq
+- #searchInput: Input xanası yenidən axtarış etmək üçün sıfırlanacaq
+- #quantity: Input xanası yenidən miqdar yazmaq üçün sıfırlanacaq
+ */
+
     $("#createButton").prop("disabled", false);
     $("#desk").prop("disabled", true);
     $("#searchInput").val("");
     $("#quantity").val("");
   }
 });
+
+// Sifariş daxilində status klaslı Input elementinin dəyərini dəyişmək
 
 $(document).ready(function () {
   $(".status").click(function () {
@@ -73,6 +124,7 @@ $(document).ready(function () {
       $(this).val("Hazırlanır");
     }
   });
+  // Sifariş daxilində pullBack klaslı Input elementinin dəyərini dəyişmək
 
   $(".pullBack").click(function () {
     if ($(this).val() == "Geri al <--") {
