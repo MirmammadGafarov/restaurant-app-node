@@ -5,6 +5,8 @@ const Admin = require("../models/adminSchema");
 
 exports.getAddOrder = (req, res, next) => {
   Admin.find({}, function (err, data) {
+    console.log(data);
+
     res.render(path.join(rootDir, "/src/views/addOrder"), {
       data: data,
       pageTitle: "Sifariş Yarat",
