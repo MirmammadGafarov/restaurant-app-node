@@ -13,7 +13,7 @@ exports.getAddOrder = (req, res, next) => {
 };
 
 exports.postAddOrder = (req, res, next) => {
-  var wishListContainer = {
+  const wishListContainer = {
     deskName: "",
     food: [],
   };
@@ -31,7 +31,7 @@ exports.postAddOrder = (req, res, next) => {
 
   if (typeof deskName == "string") {
     wishListContainer.deskName = deskName;
-    var singleWish = {
+    const singleWish = {
       rowNum,
       foodName,
       quantity,
@@ -42,9 +42,9 @@ exports.postAddOrder = (req, res, next) => {
     };
     wishListContainer.food.push(singleWish);
   } else {
-    for (var i = 0; i < foodName.length; i++) {
+    for (let i = 0; i < foodName.length; i++) {
       wishListContainer.deskName = deskName[0];
-      var multipleWish = {
+      const multipleWish = {
         rowNum: rowNum[i],
         foodName: foodName[i],
         quantity: quantity[i],

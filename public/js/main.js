@@ -13,8 +13,8 @@ $("#searchInput")
 
 $("#searchInput")
   .keyup(function () {
-    var enteredValue = $(this).val().toLowerCase();
-    var foodCollection = $("#foodList").children("li");
+    const enteredValue = $(this).val().toLowerCase();
+    const foodCollection = $("#foodList").children("li");
     const foodArray = [...foodCollection];
     foodArray.forEach((food) => {
       txtValue = food.textContent || food.innerText;
@@ -41,8 +41,8 @@ $("#foodList li")
 */
 
 $("#foodList li").click(function () {
-  var selectedFood = $(this).text();
-  var selectedFoodPrice = $(this).children().val();
+  const selectedFood = $(this).text();
+  const selectedFoodPrice = $(this).children().val();
 
   $("#searchInput").val(selectedFood);
   $("#priceInput").val(selectedFoodPrice);
@@ -67,16 +67,16 @@ $("#addButton")
 */
 
 $("#addButton").click(function () {
-  var rowNum = $("#wishList tr").length;
-  var deskName = $("#desk").val();
-  var foodName = $("#searchInput").val();
-  var quantity = $("#quantity").val();
+  const rowNum = $("#wishList tr").length;
+  const deskName = $("#desk").val();
+  const foodName = $("#searchInput").val();
+  const quantity = $("#quantity").val();
 
-  var calculatedPrice = Math.abs(
+  const calculatedPrice = Math.abs(
     Number(quantity) * Number($("#priceInput").val())
   ).toFixed(1);
 
-  var orderTime = new Date().getHours() + ":" + new Date().getMinutes();
+  const orderTime = new Date().getHours() + ":" + new Date().getMinutes();
 
   if (deskName === "" || foodName === "" || quantity === "") {
     alert("Xanaları tam doldurun");
