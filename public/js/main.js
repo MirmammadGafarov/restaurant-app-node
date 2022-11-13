@@ -41,9 +41,9 @@ $("#foodList li")
 */
 
 $("#foodList li").click(function () {
-  const selectedFood = $(this).text();
+  const selectedFood = $(this).text().trim();
   const selectedFoodPrice = $(this).children().val();
-
+  console.log(selectedFood);
   $("#searchInput").val(selectedFood);
   $("#priceInput").val(selectedFoodPrice);
   $("#foodList").hide();
