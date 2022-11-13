@@ -56,6 +56,12 @@ input:focus {
   outline: 0 none !important;
 }
 
+.btn.btn-primary:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 .container {
   padding: 30px;
   h1 {
