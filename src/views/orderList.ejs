@@ -1,64 +1,39 @@
-<%- include('partials/head')  %>
-
+<%- include('partials/head') %>
 
 <section class="order-list">
-  <div class="container ">
+  <div class="container">
     <div class="row text-center">
       <h1>Sifarişlər</h1>
-      
-      <div class="table-box">
-        <table class="table ">
-  
 
-          <thead >
-            <tr class="table-light row ">
-              <th class="col-1">S/s</th>
-              <th class="col-3">Masa</th>
-              <th class="col-4">Status</th>
-              <th class="col-3">Cəm Qiyməti</th>
-              <th class="col-1">Ətraflı</th>
+      <div class="table-box">
+        <table class="table">
+          <thead>
+            <tr class="table-light row">
+              <th class="col-md-1 col-1">S/s</th>
+              <th class="col-md-3 col-3">Masa</th>
+              <th class="col-md-4 col-4">Status</th>
+              <th class="col-md-3 col-2">Cəm Qiyməti</th>
+              <th class="col-md-1 col-2">Ətraflı</th>
             </tr>
           </thead>
-    
-     
-    
-    
-              <tbody>
-                <% for(var i = 0; i < totalPrice.length; i++){ %>
-                  <tr class=" g-0 row" >
-                    <td class="col-1"><%= i+1 %></td>
-                    <td class="col-3"><%= data[i].deskName %></td>
-                    <td class="col-4"><%= data[i].finish %></td>
-                    <td class="col-3"><%= totalPrice[i] %></td>
-                    <td class="col-1"><a href="/order-list/<%= data[i].id %>">Bax</a></td>
-                  </tr>
-                  <%  } %>
-              </tbody>
-    
-    
-    
-    
-    
-     
+
+          <tbody>
+            <% for(var i = 0; i < totalPrice.length; i++){ %>
+            <tr class="g-0 row">
+              <td class="col-md-1 col-1"><%= i+1 %></td>
+              <td class="col-md-3 col-3"><%= data[i].deskName %></td>
+              <td class="col-md-4 col-4"><%= data[i].finish %></td>
+              <td class="col-md-3 col-2"><%= totalPrice[i] %></td>
+              <td class="col-md-1 col-2">
+                <a href="/order-list/<%= data[i].id %>">Bax</a>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
         </table>
-
       </div>
-    
-
-   
     </div>
   </div>
 </section>
 
- 
-
-
-  
- 
- 
-</form>
-</table>
-
-
-    
-    <%- include('partials/end')  %>
+<%- include('partials/end') %>

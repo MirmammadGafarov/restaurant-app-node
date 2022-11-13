@@ -1,15 +1,10 @@
-// #searchInput - yemek axtarmaq ucun input
+//
 $("#searchInput")
-  // keyup olduqda asagidaki funksiya isleyecek ve real time axtaris edib cixan neticeleri secereksen
   .keyup(function () {
-    //Key sesitive mentiqine qarshi xadil edilen butun deyerler kicik herfe convert olunur
     var enteredValue = $(this).val().toLowerCase();
-    //Colection yazmisan cunki array deyil. Array oxsayir amma deyil. icinde li taglarini tutan colleksiyadir
     var foodCollection = $("#foodList").children("li");
-    // hemen kolleksiyani array bcevirmek ucun spread operatordan istifade edirik
     const foodArray = [...foodCollection];
     foodArray.forEach((food) => {
-      // real time axtaris ucun condition. txtValue ile enteredValue qarsilasdirilacaq
       txtValue = food.textContent || food.innerText;
       if (txtValue.toLowerCase().indexOf(enteredValue) >= 0) {
         food.style.display = "";
@@ -18,7 +13,6 @@ $("#searchInput")
       }
     });
   })
-  //#searchInput icerisine klik eden kimi siyahini tutan qutu gorsensin
   .focus(function () {
     $("#foodList").show();
   });
@@ -63,6 +57,7 @@ $("#addButton").click(function () {
     
     `);
 
+    $("#createButton").prop("disabled", false);
     $("#desk").prop("disabled", true);
     $("#searchInput").val("");
     $("#quantity").val("");

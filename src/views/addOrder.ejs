@@ -1,139 +1,105 @@
-<%- include('partials/head')  %>
-
+<%- include('partials/head') %>
 
 <section class="add-order">
   <div class="container text-center">
     <div class="row">
-      <h1>Sifaris yaradin</h1>
+      <h1>Sifariş Yarat</h1>
 
-      <div class="col-md-12   ">
+      <div class="col-md-12">
         <div class="row g-3 add-box">
-
-
-          <div class="col-2"> 
-            <select id="desk" class="form-select " name="desk" required>
+          <div class="col-2">
+            <select id="desk" class="form-select" name="desk" required>
               <option value="">Masa Seçin</option>
-            <% data.forEach((item)=>{ %>
-              <%  if(typeof item.desk.deskName !== 'undefined'){ %>
-              <option value="<%=item.desk.deskName %>"><%= item.desk.deskName %></option>
-              <%   } %>
-            <%  }) %>
-          </select>
-         </div>
- 
- 
+              <% data.forEach((item)=>{ %> 
+                <% if(typeof item.desk.deskName !=='undefined'){ %>
+                    <option value="<%=item.desk.deskName %>"> <%= item.desk.deskName %></option>
+                <% } %>
+              <% }) %>
+            </select>
+          </div>
+
           <div class="col-6 pb-5">
             <div class="list-box pb-5">
-            <input
-            type="text"
-            class="form-control "
-            id="searchInput"
-            placeholder="Axtar"
-            autocomplete="off"
-            required
-            />
+              <input
+                type="text"
+                class="form-control"
+                id="searchInput"
+                placeholder="Axtar"
+                autocomplete="off"
+                required
+              />
 
-            <input
-            type="hidden"
-            id="priceInput"
-            autocomplete="off"
-            required
-            />
-            
-            <ul class="food-list" id="foodList">
-              <% data.forEach((item)=>{ %>
-                <%  if(typeof item.food.foodName !== 'undefined'){ %>
-                  <li > <%=item.food.foodName %>
-                    <input  type="hidden"  value="<%=item.food.foodPrice %> ">
-                  </li>
-                <%   } %>
-              <%  }) %>
-            </ul>
-          </div>
-        </div>
+              <input
+                type="hidden"
+                id="priceInput"
+                autocomplete="off"
+                required
+              />
 
-          <div class="col-2">
-            <input  type="number" class="form-control"   id="quantity"  min="1" max="50" autocomplete="off" placeholder="Miqdar"  required/>
+              <ul class="food-list" id="foodList">
+                <% data.forEach((item)=>{ %> <% if(typeof item.food.foodName !=='undefined'){ %>
+                <li>
+                    <%=item.food.foodName %>
+                    <input type="hidden" value="<%=item.food.foodPrice %> " />
+                </li>
+                    <% } %>
+                <% }) %>
+              </ul>
+            </div>
           </div>
 
           <div class="col-2">
-            <button type="submit" id="addButton" class="btn btn-primary main-btn ">
+            <input
+              type="number"
+              class="form-control"
+              id="quantity"
+              min="1"
+              max="50"
+              autocomplete="off"
+              placeholder="Miqdar"
+              required
+            />
+          </div>
+
+          <div class="col-2">
+            <button
+              type="submit"
+              id="addButton"
+              class="btn btn-primary main-btn"
+            >
               Əlavə Et
             </button>
           </div>
-      
-
-        
- 
-       
-    </div>
+        </div>
       </div>
 
-
-
-
-
-
-
-
-      <div class="col-md-12 ">
-
-
-
+      <div class="col-md-12">
         <form action="/add-order" method="POST" name="all">
-       
-          <table id="wishList" class="table table-striped">  
+          <table id="wishList" class="table table-striped">
             <thead>
-            <tr class="table-light row">
-              <th class="col-1">S/s</th>
-              <th class="col-2">Masa</th>
-              <th class="col-5">Yemək Adı</th>
-              <th class="col-2">Miqdarı</th>
-              <th class="col-1">Qiyməti</th>
-              <th class="col-1">Sifariş Saatı</th>
-            </tr>
-          </thead>
+              <tr class="table-light row">
+                <th class="col-1">S/s</th>
+                <th class="col-2">Masa</th>
+                <th class="col-5">Yemək Adı</th>
+                <th class="col-2">Miqdarı</th>
+                <th class="col-1">Qiyməti</th>
+                <th class="col-1">Sifariş Saatı</th>
+              </tr>
+            </thead>
           </table>
-       
-          <button type="submit" id="addButton" class="btn btn-primary main-btn ">
+
+          <button
+            type="submit"
+            id="createButton"
+            class="btn btn-primary main-btn"
+            disabled
+          >
             Sifariş Yarat
           </button>
-
-
         </form>
-
-
-
-
       </div>
-
     </div>
   </div>
 </section>
 
-
-
-      
-
-
-
-
-      
-
-    
-
-
-
-
-
-   
- 
- 
- 
-    
-        
-  
-
-
-
-    <%- include('partials/end')  %>
+<%- include('partials/end') %>

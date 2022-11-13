@@ -1,87 +1,142 @@
-<%- include('partials/head')  %>
+<%- include('partials/head') %>
 
 <section class="individual-order">
-    <div class="container">
-        <div class="row text-center">
-            <h1><%= deskName %></h1>
+  <div class="container">
+    <div class="row text-center">
+      <h1><%= deskName %></h1>
 
-            <div class="individual-box">
-                <div class="col-md-12">
-
-
-
-                    <table id="wishList" class="table  ">  
-    
-                        <thead>
-                            <tr class="table-light row">
-                                <th class="col-1">S/s</th>
-                                <th class="col-5">Yemək Adı</th>
-                                <th class="col-1">Miqdar</th>
-                                <th class="col-1">Məbləğ</th>
-                                <th class="col-1">Sifariş Saatı</th>
-                                <th class="col-1">Status</th>
-                                <th class="col-2">Geriyə Al</th>
-                            </tr>
-                      </thead>
-    
-    <tbody>
-    
-        <form action="/order-list/<%=id%>" method="POST">
-            <% food.forEach((item)=>{%>
-                <tr class=" g-0 row" >
-                    <td class="col-1"><input type="number" class="form-control" name="rowNum" value="<%= item.rowNum%>" readonly></td>
-                    <td class="col-5"><input type="text" class="form-control" name="foodName" value="<%= item.foodName%>" readonly></td>
-                    <td class="col-1"><input type="number" class="form-control" name="quantity" value="<%= item.quantity%>" readonly></td>
-                    <td class="col-1"><input type="number" class="form-control" name="calculatedPrice" value="<%= item.calculatedPrice%>" readonly></td>
-                    <td class="col-1"><input type="text" class="form-control" name="orderTime" value="<%= item.orderTime%>" readonly></td>
-                    <td class="col-1"><input type="text" class="status form-control" name="status" value="<%= item.status%>" readonly></td>
-                    <td class="col-2"><input type="text" class="pullBack form-control" name="pullBack" value="<%= item.pullBack%>" readonly></td>
-                </tr> 
-                <%  })%>
-                <tr class=" total g-0 row">
-                    <td >Cəm Qiyməti:<input type="number" name="totalPrice" value="<%= totalPrice %>" readonly></td>
+      <div class="individual-box">
+        <div class="col-md-12">
+          <form action="/order-list/<%=id%>" method="POST">
+            <table id="wishList" class="table">
+              <thead>
+                <tr class="table-light row">
+                  <th class="col-1">S/s</th>
+                  <th class="col-4">Yemək Adı</th>
+                  <th class="col-1">Miqdar</th>
+                  <th class="col-1">Məbləğ</th>
+                  <th class="col-1">Sifariş Saatı</th>
+                  <th class="col-2">Status</th>
+                  <th class="col-2">Geriyə Al</th>
                 </tr>
-            </tbody>
-        </table>
+              </thead>
 
+              <tbody>
+                <% food.forEach((item)=>{ %>
+                <tr class="g-0 row">
+                  <td class="col-1">
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="rowNum"
+                      value="<%= item.rowNum%>"
+                      readonly
+                    />
+                  </td>
+                  <td class="col-4">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="foodName"
+                      value="<%= item.foodName%>"
+                      readonly
+                    />
+                  </td>
+                  <td class="col-1">
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="quantity"
+                      value="<%= item.quantity%>"
+                      readonly
+                    />
+                  </td>
+                  <td class="col-1">
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="calculatedPrice"
+                      value="<%= item.calculatedPrice%>"
+                      readonly
+                    />
+                  </td>
+                  <td class="col-1">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="orderTime"
+                      value="<%= item.orderTime%>"
+                      readonly
+                    />
+                  </td>
+                  <td class="col-2">
+                    <input
+                      type="text"
+                      class="status form-control"
+                      name="status"
+                      value="<%= item.status%>"
+                      readonly
+                    />
+                  </td>
+                  <td class="col-2">
+                    <input
+                      type="text"
+                      class="pullBack form-control"
+                      name="pullBack"
+                      value="<%= item.pullBack%>"
+                      readonly
+                    />
+                  </td>
+                </tr>
+                <% })%>
+                <tr class="total g-0 row">
+                  <td>
+                    Cəm Qiyməti:<input
+                      type="number"
+                      name="totalPrice"
+                      value="<%= totalPrice %>"
+                      readonly
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
 
-
-                <% if ( finish  === "Sonlandırılmayıb") { %>
-                     
-                    <div class="form-check form-check-reverse">
-                        <label class="form-check-label">Sifarişi Bitir :</label>
-                        <input class="form-check-input" type="checkbox"  name="finish" value="Sonlandırıldı"  > 
-                    </div>
-                    
-                    <%} else { %>
-
-
-        <div class="form-check form-check-reverse">
-            <label class="form-check-label">Sifarişi Bitir :</label>
-            <input class="form-check-input" type="checkbox"  name="finish" value="Sonlandırıldı" checked > 
-        </div>
-
-
-
-
-                    <% } %>
-        
-                <button class="btn btn-primary main-btn mb-4" id="saveButton"  type="submit"  >Yaddaşda Saxla</button>
-               
-            </form>
-    
-                </div>
+            <% if ( finish === "Sonlandırılmayıb") { %>
+            <div class="form-check form-check-reverse">
+              <label class="form-check-label">Sifarişi Bitir :</label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="finish"
+                value="Sonlandırıldı"
+              />
             </div>
-         
+            <%} else { %>
+            <div class="form-check form-check-reverse">
+              <label class="form-check-label">Sifarişi Bitir :</label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="finish"
+                value="Sonlandırıldı"
+                checked
+              />
+            </div>
+            <% } %>
+
+            <button
+              class="btn btn-primary main-btn mb-4"
+              id="saveButton"
+              type="submit"
+            >
+              Yaddaşda Saxla
+            </button>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
-
-
- 
-
- 
-
-
-<%- include('partials/end')  %>
+<%- include('partials/end') %>
