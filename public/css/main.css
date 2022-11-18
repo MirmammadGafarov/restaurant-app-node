@@ -93,7 +93,7 @@ input:focus {
   border: none;
 }
 
-.navbar {
+.head-nav {
   background: -webkit-gradient(linear, left top, right top, from(#0575e6), to(#00f260));
   background: linear-gradient(to right, #0575e6, #00f260);
 }
@@ -101,6 +101,25 @@ input:focus {
 .nav-link {
   font-weight: 500;
   letter-spacing: 1px;
+}
+
+.add-box {
+  padding: 40px;
+  margin-top: 20px;
+  border: #02c39a 1px solid;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.drag-left {
+  font-size: 14px;
+  text-indent: 4px;
+  text-align: left;
+}
+
+.table-box {
+  margin-top: 20px;
+  border: #02c39a 1px solid;
 }
 
 .list-box {
@@ -124,18 +143,19 @@ input:focus {
   list-style: none;
 }
 
-.add-box {
-  padding: 40px;
-  margin-top: 20px;
-  border: #02c39a 1px solid;
-  margin-left: auto !important;
-  margin-right: auto !important;
+.remove {
+  background-color: rgb(239, 33, 84) !important;
+  border: rgb(239, 33, 84) 1px solid !important;
+  color: white;
+  font-weight: 500;
+  letter-spacing: 2px;
+  cursor: pointer;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
-
-.drag-left {
-  font-size: 14px;
-  text-indent: 4px;
-  text-align: left;
+.remove:hover {
+  background-color: transparent !important;
+  color: black;
 }
 
 .individual-box {
@@ -167,9 +187,4 @@ input:focus {
 .total input {
   text-align: left;
   text-indent: 10px;
-}
-
-.table-box {
-  margin-top: 20px;
-  border: #02c39a 1px solid;
 }

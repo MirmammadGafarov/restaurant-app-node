@@ -25,6 +25,7 @@ $("#searchInput")
       }
     });
   })
+
   .focus(function () {
     $("#foodList").show();
   });
@@ -43,7 +44,7 @@ $("#foodList li")
 $("#foodList li").click(function () {
   const selectedFood = $(this).text().trim();
   const selectedFoodPrice = $(this).children().val();
-  console.log(selectedFood);
+
   $("#searchInput").val(selectedFood);
   $("#priceInput").val(selectedFoodPrice);
   $("#foodList").hide();
@@ -83,15 +84,18 @@ $("#addButton").click(function () {
   } else {
     $("#wishList").append(`
   
-    <tr class=" g-0 row" >
+    <tr class="wish-row g-0 row" >
       <td class="col-1"><input type="text" name='rowNum'  class="form-control" value='${rowNum}' readonly ></td>
-      <td class="col-2"><input type="text" name='deskName' class="form-control" value='${deskName}' readonly></td>
+      <td class="col-1"><input type="text" name='deskName' class="form-control" value='${deskName}' readonly></td>
       <td class="col-5"><input type="text" name='foodName' class="form-control" value='${foodName}' readonly></td>
       <td class="col-2"><input type="text" name='quantity' class="form-control" value='${Math.abs(
         quantity
       )}' readonly></td>
       <td class="col-1"><input type="number" name='calculatedPrice' class="form-control" value='${calculatedPrice}' readonly></td>
       <td class="col-1"><input type="text" name='orderTime' class="form-control" value='${orderTime}' readonly></td>
+      <td class="col-1"><input type="text" class="form-control remove" value='Sil' readonly></td>
+
+      
       <td ><input type="hidden" name='status' class="form-control" value="Hazırlanır"  ></td>
       <td ><input type="hidden" name='pullBack' class="form-control" value="Geri al <--" ></td>
     </tr>
@@ -111,6 +115,14 @@ Cədvələ sifariş əlavə olunduqda:
     $("#searchInput").val("");
     $("#quantity").val("");
   }
+  // - .remove: Cədvələ əlavə olunmuş sifarişi silmək üçün
+  //- .wish-row: Cədvəldəki sıranın class adıdır. Əgər cədvəldə sıra olmasa #createButton yenidən disabled olacaq.
+  $(".remove").click(function () {
+    $(this).parent().parent().remove();
+    if ($(".wish-row").length === 0) {
+      $("#createButton").prop("disabled", true);
+    }
+  });
 });
 
 // Sifariş daxilində status klaslı Input elementinin dəyərini dəyişmək
