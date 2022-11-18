@@ -18,7 +18,6 @@ exports.getOrderList = (req, res, next) => {
       pageTitle: "Sifarişlər",
       data: data,
       totalPrice: totalPrice,
-      isAuth: req.session.isAuth,
     });
   });
 };

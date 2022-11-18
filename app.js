@@ -29,6 +29,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(rootDir, "public")));
 
+app.use(function (req, res, next) {
+  res.locals.isAuth = req.session.isAuth;
+  next();
+});
 app.use(authRouter);
 app.use(adminRouter);
 app.use(orderListRouter);

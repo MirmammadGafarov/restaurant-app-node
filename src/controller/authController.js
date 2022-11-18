@@ -7,7 +7,6 @@ const User = require("../models/userSchema");
 exports.getLogin = (req, res, next) => {
   res.render(path.join(rootDir, "/src/views/login"), {
     pageTitle: "Daxil Olun",
-    isAuth: req.session.isAuth,
   });
 };
 
