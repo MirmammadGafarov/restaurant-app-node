@@ -13,57 +13,80 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <header class="p-0">
-          <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/">YumMy</a>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-              >
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a
-                      class="nav-link <%= pageTitle === 'Ana Səhifə' ? 'active' : '' %>"
-                      href="/"
-                      >Ana Səhifə</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link <%= pageTitle === 'Sifarişlər' ? 'active' : '' %>"
-                      href="/order-list"
-                      >Sifarişlər</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link <%= pageTitle === 'Sifariş Yarat' ? 'active' : '' %>"
-                      href="/add-order"
-                      >Sifariş Yarat</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link <%= pageTitle === 'Admin Paneli' ? 'active' : '' %>"
-                      href="/admin"
-                    >
-                      <u>Admin Paneli</u></a
-                    >
-                  </li>
-                </ul>
+    <div class="container-fluid head-nav">
+      <div class="container p-0">
+        <div class="row">
+          <header class="p-0">
+            <nav class="navbar navbar-expand-md navbar-dark">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="/">YumMy</a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                  class="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a
+                        class="nav-link <%= pageTitle === 'Sifariş Yarat' ? 'active' : '' %>"
+                        href="/"
+                        >Sifariş Yarat</a
+                      >
+                    </li>
+
+                    <li class="nav-item">
+                      <a
+                        class="nav-link <%= pageTitle === 'Sifarişlər' ? 'active' : '' %>"
+                        href="/order-list"
+                        >Sifarişlər</a
+                      >
+                    </li>
+
+                    <% if( typeof isAuth !== 'undefined' && isAuth == '1'){%>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link <%= pageTitle === 'Admin Paneli' ? 'active' : '' %>"
+                        href="/admin"
+                      >
+                        <u>Admin Paneli</u></a
+                      >
+                    </li>
+                    <% } %>
+                  </ul>
+
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <% if( typeof isAuth !== 'undefined' && isAuth == '1'){%>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link btn btn-primary main-btn"
+                        href="/logout"
+                        >Çıxış</a
+                      >
+                    </li>
+
+                    <% } else { %>
+
+                    <li class="nav-item">
+                      <a class="nav-link btn btn-primary main-btn" href="/login"
+                        >Daxil Ol</a
+                      >
+                    </li>
+
+                    <% } %>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </nav>
-        </header>
+            </nav>
+          </header>
+        </div>
       </div>
     </div>
-  </body>
-</html>
+ 
+ 

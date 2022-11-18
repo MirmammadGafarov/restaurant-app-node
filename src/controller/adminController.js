@@ -3,8 +3,13 @@ const rootDir = require("../util/path");
 const Admin = require("../models/adminSchema");
 
 exports.getAdmin = (req, res, next) => {
+  if (!req.session.isAuth) {
+    return res.redirect("/login");
+  }
+
   res.render(path.join(rootDir, "/src/views/admin"), {
     pageTitle: "Admin Paneli",
+    isAuth: req.session.isAuth,
   });
 };
 
