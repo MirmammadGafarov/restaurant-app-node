@@ -49,7 +49,7 @@
                       >
                     </li>
 
-                    <% if( typeof isAuth !== 'undefined' && isAuth == '1'){%>
+                    <% if(isAuth){%>
                     <li class="nav-item">
                       <a
                         class="nav-link <%= pageTitle === 'Admin Paneli' ? 'active' : '' %>"
@@ -62,7 +62,7 @@
                   </ul>
 
                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <% if( typeof isAuth !== 'undefined' && isAuth == '1'){%>
+                    <% if(isAuth){%>
                     <li class="nav-item">
                       <a
                         class="nav-link btn btn-primary main-btn"

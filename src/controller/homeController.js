@@ -8,7 +8,6 @@ exports.getAddOrder = (req, res, next) => {
     res.render(path.join(rootDir, "/src/views/home"), {
       data: data,
       pageTitle: "Sifariş Yarat",
-      isAuth: req.session.isAuth,
     });
   });
 };
@@ -65,5 +64,5 @@ exports.postAddOrder = (req, res, next) => {
 
   order.save();
 
-  res.redirect("/");
+  res.redirect("/order-list");
 };
