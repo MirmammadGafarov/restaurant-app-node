@@ -1,5 +1,8 @@
 require("dotenv").config();
 const express = require("express");
+const helmet = require("helmet");
+const compression = require("compression");
+
 const path = require("path");
 const rootDir = require("./src/util/path");
 const bodyParser = require("body-parser");
@@ -11,8 +14,11 @@ const authRouter = require("./src/router/authRouter");
 const adminRouter = require("./src/router/adminRouter");
 const homeRouter = require("./src/router/homeRouter");
 const orderListRouter = require("./src/router/orderListRouter");
+const errorHandler = require("./src/middleware/errorHandler");
 
 const app = express();
+app.use(helmet());
+app.use(compression());
 const cookieParser = require("cookie-parser");
 app.use(
   session({
@@ -37,6 +43,8 @@ app.use(authRouter);
 app.use(adminRouter);
 app.use(orderListRouter);
 app.use(homeRouter);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT;
 

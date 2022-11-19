@@ -1,3 +1,5 @@
+require("express-async-errors");
+
 const path = require("path");
 const rootDir = require("../util/path");
 const Admin = require("../models/adminSchema");
@@ -8,7 +10,7 @@ exports.getAdmin = (req, res, next) => {
   });
 };
 
-exports.postAdmin = (req, res, next) => {
+exports.postAdmin = async (req, res, next) => {
   const { foodName, foodPrice, deskName } = req.body;
 
   const desk = new Admin({
@@ -25,9 +27,9 @@ exports.postAdmin = (req, res, next) => {
   });
 
   if (deskName) {
-    desk.save();
+    await desk.save();
   } else {
-    food.save();
+    await food.save();
   }
 
   res.redirect("/admin");
