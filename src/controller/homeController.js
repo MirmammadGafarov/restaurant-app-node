@@ -1,3 +1,5 @@
+require("express-async-errors");
+
 const path = require("path");
 const rootDir = require("../util/path");
 const Order = require("../models/orderSchema");
@@ -12,7 +14,7 @@ exports.getAddOrder = (req, res, next) => {
   });
 };
 
-exports.postAddOrder = (req, res, next) => {
+exports.postAddOrder = async (req, res, next) => {
   const wishListContainer = {
     deskName: "",
     food: [],
@@ -62,7 +64,7 @@ exports.postAddOrder = (req, res, next) => {
     food: wishListContainer.food,
   });
 
-  order.save();
+  await order.save();
 
   res.redirect("/order-list");
 };

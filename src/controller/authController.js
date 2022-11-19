@@ -1,11 +1,13 @@
+require("express-async-errors");
+
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const path = require("path");
 const rootDir = require("../util/path");
 const User = require("../models/userSchema");
 
-exports.getLogin = (req, res, next) => {
-  res.render(path.join(rootDir, "/src/views/login"), {
+exports.getLogin = async (req, res, next) => {
+  await res.render(path.join(rootDir, "/src/views/login"), {
     pageTitle: "Daxil Olun",
   });
 };

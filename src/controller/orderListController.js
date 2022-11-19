@@ -1,3 +1,5 @@
+require("express-async-errors");
+
 const path = require("path");
 const rootDir = require("../util/path");
 const Order = require("../models/orderSchema");
