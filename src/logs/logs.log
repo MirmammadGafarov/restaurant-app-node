@@ -1,0 +1,6 @@
+{ level: 'error', timestamp: '28-Nov-2022 14:09:24' }
+{
+  message: 'secret option required for sessions',
+  level: 'error',
+  timestamp: '28-Nov-2022 14:09:33'
+}
