@@ -1,7 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const helmet = require("helmet");
-const compression = require("compression");
 
 const path = require("path");
 const rootDir = require("./src/util/path");
@@ -17,8 +15,6 @@ const orderListRouter = require("./src/router/orderListRouter");
 const errorHandler = require("./src/middleware/errorHandler");
 
 const app = express();
-app.use(helmet());
-app.use(compression());
 const cookieParser = require("cookie-parser");
 app.use(
   session({
